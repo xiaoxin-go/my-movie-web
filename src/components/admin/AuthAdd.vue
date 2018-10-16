@@ -15,8 +15,14 @@
     margin-top: 15px;">
       <Card :bordered="false" dis-hover>
         <p slot="title">添加权限</p>
-        <p style="margin-bottom: 5px;">权限名称</p>
-        <Input v-model="name" placeholder="请输入权限名称..." clearable style="width: 100%" />
+        <div class="group-input">
+          <p style="margin-bottom: 5px;">权限名称</p>
+          <Input v-model="name" placeholder="请输入权限名称..." clearable style="width: 100%"/>
+        </div>
+        <div class="group-input">
+          <p style="margin-bottom: 5px;">权限url</p>
+          <Input v-model="url" placeholder="请输入url..." clearable style="width: 100%"/>
+        </div>
       </Card>
       <Divider />
       <div style="padding: 0 0 15px 10px">
@@ -37,7 +43,8 @@
     data() {
       return {
         /*  添加权限属性 */
-        name: null,          // 机房名称
+        name: null,          // 权限名称
+        url: null,            //权限地址
 
       }
     },
@@ -57,6 +64,7 @@
         }
         let json_data = {
           name: this.name,
+          url: this.url,
         };
         //  权限添加成功后，应当将添加成功的ID返回，然后追加到列表中，添加完成后，初始化模态框信息         // 否则为新建
         let resp = await addAuth(json_data);

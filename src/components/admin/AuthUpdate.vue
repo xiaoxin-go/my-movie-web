@@ -15,8 +15,14 @@
     margin-top: 15px;">
       <Card :bordered="false" dis-hover>
         <p slot="title">修改权限</p>
-        <p style="margin-bottom: 5px;">权限名称</p>
-        <Input v-model="name" placeholder="请输入权限名称..." clearable style="width: 100%" />
+        <div class="group-input">
+          <p style="margin-bottom: 5px;">权限名称</p>
+          <Input v-model="name" placeholder="请输入权限名称..." clearable style="width: 100%"/>
+        </div>
+        <div class="group-input">
+          <p style="margin-bottom: 5px;">权限url</p>
+          <Input v-model="url" placeholder="请输入url..." clearable style="width: 100%"/>
+        </div>
       </Card>
       <Divider />
       <div style="padding: 0 0 15px 10px">
@@ -37,7 +43,8 @@
     data() {
       return {
         /*  添加权限属性 */
-        name:null,          // 机房名称
+        name:null,          // 权限名称
+        url: null,
       }
     },
     computed: {
@@ -54,7 +61,9 @@
 
       async getData(){
         let resp = await getAuth({id: this.id});
-        this.name = resp.data[0].name
+        let data = resp.data[0];
+        this.name = data.name;
+        this.url = data.url;
       },
 
       // 添加权限

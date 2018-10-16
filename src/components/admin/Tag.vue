@@ -56,15 +56,13 @@
               render: (h, params) => {
                 // 两个按钮
                 return h('div', [
-                  h('a', [h('Icon', {props: {type: 'ios-build-outline', size: '18'},
+                  h('a', [h('Button', {props: {type: 'info', size: 'small'},
                     style: {marginRight: '5px'},
-                    domProps:{title:'修改'},
-                    on: {click: () => {this.put(params.index)}}}, "")]
+                    on: {click: () => {this.put(params.index)}}}, "修改")]
                   ),
-                  h('a', [h('Icon', {props: {type: 'ios-trash-outline', size: '18'},
+                  h('a', [h('Button', {props: {type: 'warning', size: 'small'},
                     style: {marginRight: '5px'},
-                    domProps:{title:'删除'},
-                    on: {click: () => {this.index = params.index;this.delModal = true}}}, "")]
+                    on: {click: () => {this.index = params.index;this.delModal = true}}}, "删除")]
                   )
                 ]);
               }

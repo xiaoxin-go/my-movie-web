@@ -25,7 +25,7 @@ export default new Router({
 
     // 会员管理
   {path:'/admin/user',component:()=>import('../components/admin/User.vue')},
-    {path:'/admin/user/update/:bid',component:()=>import('../components/admin/UserUpdate.vue')},
+    {path:'/admin/user/detail/:bid',component:()=>import('../components/admin/UserDetail.vue')},
 
     // 评论管理
   {path:'/admin/comment',component:()=>import('../components/admin/Comment.vue')},
@@ -50,6 +50,6 @@ export default new Router({
     {path:'/admin/admin/add',component:()=>import('../components/admin/AdminAdd.vue')},
     {path:'/admin/admin/update/:bid',component:()=>import('../components/admin/AdminUpdate.vue')},
 
-    {path:'/home/index', component:()=>import('../components/home/Index.vue')}
+    //{path:'/home/index', component:()=>import('../components/home/Index.vue')}
   ]
 })
